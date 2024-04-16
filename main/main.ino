@@ -34,7 +34,7 @@ int in3 = 3;
 int in4 = 2;
 L298N motorB(enB, in3, in4);
 
-int motorSpeed = 170;
+int motorSpeed = 200;
 
 // Servo control
 
@@ -494,12 +494,12 @@ void loop() {
   if(sensorValues[0] >= 500) {
 
     motorA.setSpeed(motorSpeed);
-    motorB.setSpeed(0);
+    motorB.setSpeed(motorSpeed * 0.6);
 
   } else if(sensorValues[1] >= 500) {
 
-    motorA.setSpeed(motorSpeed * 0.75);
-    motorB.setSpeed(motorSpeed * 0.3);
+    motorA.setSpeed(motorSpeed);
+    motorB.setSpeed(motorSpeed * 0.7);
 
   } else if(
     sensorValues[2] >= 500 &&
@@ -512,13 +512,13 @@ void loop() {
 
   } else if(sensorValues[3] >= 500) {
 
-    motorB.setSpeed(motorSpeed * 0.75);
-    motorA.setSpeed(motorSpeed * 0.3);
+    motorB.setSpeed(motorSpeed);
+    motorA.setSpeed(motorSpeed * 0.7);
 
   } else if(sensorValues[4] >= 500) {
 
     motorB.setSpeed(motorSpeed);
-    motorA.setSpeed(0);
+    motorA.setSpeed(motorSpeed * 0.6);
 
   }
 
